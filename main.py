@@ -21,7 +21,7 @@ num_of_tries = 6
 
 # the lookup table
 lookup = []
-with open(glob.glob('**/*.txt', recursive=True)[0], "r", encoding="utf-8") as file:
+with open(glob.glob('**/HR*.txt', recursive=True)[0], "r", encoding="utf-8") as file:
     for line in file:
         lookup.append(line.split()[0].lower())
 

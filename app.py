@@ -38,7 +38,8 @@ def wordle_game(letters: str = None):
             result = check_words(answer, words[:-1])
             colors = list_word(result)
             texts = list_word(words[:-1]) 
-        except IndexError:
+        except Exception as e:
+            print(e)
             pass        
 
         # add to the end so no overflow error
@@ -57,12 +58,11 @@ def wordle_game(letters: str = None):
     # nothing interesting happened
     else:
         texts = list_word(words)
-        colors = list_word(result[0])
+        colors = list_word(result)
         print(texts,colors)
     
     return render_template("wordle.jinja", texts=texts, colors=colors, answer=answer, error_message=error_message)
-    # return render_template("wordle.html",id1=id1,id2=id2,id3=id3,id4=id4,id5=id5,id6=id6,id7=id7,id8=id8,id9=id9,id10=id10,id11=id11,id12=id12,id13=id13,id14=id14,id15=id15,id16=id16,id17=id17,id18=id18,id19=id19,id20=id20,id21=id21,id22=id22,id23=id23,id24=id24,id25=id25,id26=id26,id27=id27,id28=id28,id29=id29,id30=id30)
-
+    
 
 @app.route("/about")
 def about():

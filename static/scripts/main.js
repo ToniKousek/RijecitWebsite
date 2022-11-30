@@ -122,14 +122,19 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
 
-  set_current_id()
+  //alert that the word isn't in the dictionary
+  if(document.getElementById("hidden").innerText == "0"){
+    alert("That word isn't in the dictionary")
+  }
+
+  set_current_id();
 
   //did we win
   for (let i = current_id - 1; i > current_id - 5; i--) {
     if (document.getElementById(String(i)).style.backgroundColor !== "green") return;
   }
-  alert("You won, congrats!")
-  current_id = 31
+  alert("Pobijedio si!\nSvaka ti čast\n " + String.fromCodePoint(0x1F60A));
+  current_id = 31;
 
 });
 
